@@ -37,7 +37,9 @@ $(document).on("click", ".button", function() {
     if (arr.name == this.name) {
       arr.images.map((link) => {
         let container = $("<div>"), rating = $("<p>"), gif = $("<img>");
+        gif.attr("class", ".gif");
         gif.attr("src", link);
+        gif.attr("data-state", still);
         rating.text(`rating: ${arr.rating}`);
         container.append(rating);
         container.append(gif);
@@ -46,3 +48,12 @@ $(document).on("click", ".button", function() {
     }
   })
 })
+
+$(".gif").on("click"), () => {
+  let state = $(this).attr("data-state");
+  let url = $(this).attr("src");
+  console.log(url)
+  if (state == "still") {
+    
+  }
+}

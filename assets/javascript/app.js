@@ -1,5 +1,3 @@
-
-
 WebsiteObject = {
   buttons: ["Dog","Cat","Fish","Bunny"],
   giphyArray: [],
@@ -7,12 +5,20 @@ WebsiteObject = {
     $("#buttons").empty();
     this.giphyArray = [];
     this.buttons.map((element, index) => {
-      $.get(`http://api.giphy.com/v1/gifs/random?tag=${element}&rating=g&api_key=hB3OC11Wjmrbng5YPx9vRogIa5OsMSxH&limit=1`)
+      $.get(`http://api.giphy.com/v1/gifs/search?q=${element}&rating=g&api_key=hB3OC11Wjmrbng5YPx9vRogIa5OsMSxH&limit=15`)
       .then((response) => {
-        this.giphyArray[index] = response;
-      })
+        let obj = {}
+        obj.name = element;
+        obj.images = [];
+        response.data.map((x, i) => {
+          obj.rating = x.rating;
+          obj.images.push(x.images.fixed_width.url);
+        })
+        this.giphyArray.push(obj);
+        })
       $("#buttons").append(`<button class="button" name='${element}'>${element}</button>`);
     })
+
   }
 }
 
@@ -26,6 +32,17 @@ $("#add-button").on("click", function(event) {
 WebsiteObject.renderButtons();
 
 $(document).on("click", ".button", function() {
-  // console.log(WebsiteObject.buttons[this.name]);
-  console.log(WebsiteObject.giphyArray[WebsiteObject.buttons.indexOf(this.name)])
+  $("#giphyGifs").empty();
+  WebsiteObject.giphyArray.map((arr) => {
+    if (arr.name == this.name) {
+      arr.images.map((link) => {
+        let container = $("<div>"), rating = $("<p>"), gif = $("<img>");
+        gif.attr("src", link);
+        rating.text(`rating: ${arr.rating}`);
+        container.append(rating);
+        container.append(gif);
+        $("#giphyGifs").append(container);
+      })
+    }
+  })
 })

@@ -68,8 +68,10 @@ $(document).on("click", ".button", function() {
           let faves = $("#faves");
           let test = $(this).parent()[0]
           let star = $(this).parent().children()[2]
+          let fixer = $("<div class='gifContainer col-md-3 btn-group'>")
+          fixer.append(test)
           star.remove()
-          faves.append(test)
+          faves.append(fixer)
         })
 // ==================================================================================================================
         giphyButton.append(gif);

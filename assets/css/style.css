@@ -1,9 +1,10 @@
+body {
+  background-color: orange;
+}
 .favButton {
-  /* height: 93.2%; */
 }
 .gif {
-  /* padding-top: 5px; */
-  height: 93%;
+  height: 100%;
 }
 
 .gifContainer {

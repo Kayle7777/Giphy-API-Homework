@@ -25,6 +25,8 @@ let WebsiteObject = {
   }
 }
 
+WebsiteObject.renderButtons();
+
 $("#add-button").on("click", function(event) {
   event.preventDefault();
   var buttonInput = $("#button-input").val().trim();
@@ -32,8 +34,6 @@ $("#add-button").on("click", function(event) {
   WebsiteObject.buttons.push(buttonInput);
   WebsiteObject.renderButtons();
 });
-
-WebsiteObject.renderButtons();
 
 $(document).on("click", ".button", function() {
   $("#giphyGifs").empty();
@@ -51,7 +51,7 @@ $(document).on("click", ".button", function() {
         gif.attr("data-state", "still");
 // ==================================================================================================================
         // This attaches the function that changes each giphyButton to its animated / still version
-        function giphyAnimate() {
+        giphyButton.click(function() {
           let imgInfo = $(this).children()[0];
           if (imgInfo.dataset.state == "still") {
             imgInfo.dataset.state = "animate";
@@ -60,8 +60,7 @@ $(document).on("click", ".button", function() {
             imgInfo.dataset.state = "still";
             imgInfo.src = arr.images_still[index];
           }
-        }
-        giphyButton.click(giphyAnimate)
+        })
 // ==================================================================================================================
         // This is for the star / favorites button
         favButton.click(function() {

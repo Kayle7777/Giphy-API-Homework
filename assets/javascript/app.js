@@ -7,7 +7,7 @@ let WebsiteObject = {
 // ==================================================================================================================
     // I should probably use a constructor here for giphyArray, because all this map does is build giphy array into a new array of objects
     this.buttons.map((element) => {
-      $.get(`http://api.giphy.com/v1/gifs/search?q=${element}&rating=g&api_key=hB3OC11Wjmrbng5YPx9vRogIa5OsMSxH&limit=15`)
+      $.get(`http://api.giphy.com/v1/gifs/search?q=${element}&api_key=hB3OC11Wjmrbng5YPx9vRogIa5OsMSxH&limit=15`)
       .then((response) => {
         let obj = {};
         obj.name = element;
@@ -39,9 +39,13 @@ $(document).on("click", ".button", function() {
   WebsiteObject.giphyArray.map((arr) => {
     if (arr.name == this.name) {
       arr.images_still.map((link, index) => {
-        let container = $("<div>"), rating = $("<p>"), gif = $("<img>"), giphyButton = $("<button>"), favButton = $("<button>");
-        container.attr("class", "col-md-3")
-        giphyButton.attr("class", ".gif");
+        let container = $("<div class='gifContainer col-md-3 btn-group'>"), rating = $("<p class='text-center col-md-12'>"), gif = $("<img>"), giphyButton = $("<button>"), favButton = $("<button>"), row=$("<div class='row'>");
+        rating.text(`Rating: ${arr.rating}`);
+        favButton.text("\u2729")
+        giphyButton.attr("type", "button");
+        giphyButton.attr("class", "gif btn btn-primary btn-block col-md-10");
+        favButton.attr("type", "button");
+        favButton.attr("class", "favButton btn btn-primary btn-block col-md-2");
         gif.attr("src", link);
         gif.attr("data-state", "still");
 // ==================================================================================================================
@@ -56,10 +60,9 @@ $(document).on("click", ".button", function() {
             imgInfo.src = arr.images_still[index];
           }
         }
-
         giphyButton.click(giphyAnimate)
-
-        favButton.text("\u2729")
+// ==================================================================================================================
+        // This is for the star / favorites button
         favButton.click(function() {
           let faves = $("#faves");
           let test = $(this).parent()[0]
@@ -69,10 +72,10 @@ $(document).on("click", ".button", function() {
         })
 // ==================================================================================================================
         giphyButton.append(gif);
-        rating.text(`rating: ${arr.rating}`);
-        container.append(rating);
-        container.append(giphyButton);
-        container.append(favButton);
+        row.append(rating);
+        row.append(giphyButton);
+        row.append(favButton);
+        container.append(row);
         $("#giphyGifs").append(container);
       })
     }

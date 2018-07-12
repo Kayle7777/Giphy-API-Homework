@@ -20,15 +20,16 @@ let WebsiteObject = {
         })
         this.giphyArray.push(obj);
         })
-      $("#buttons").append(`<button class="col-md-2 button button-primary" name='${element}'>${element}</button>`);
+      $("#buttons").append(`<button class="button btn btn-info" name='${element}'>${element}</button>`);
     })
   }
 }
 
 $("#add-button").on("click", function(event) {
   event.preventDefault();
-  var button = $("#button-input").val().trim();
-  WebsiteObject.buttons.push(button);
+  var buttonInput = $("#button-input").val().trim();
+  $("#button-input").val("");
+  WebsiteObject.buttons.push(buttonInput);
   WebsiteObject.renderButtons();
 });
 
@@ -43,9 +44,9 @@ $(document).on("click", ".button", function() {
         rating.text(`Rating: ${arr.rating}`);
         favButton.text("\u2729")
         giphyButton.attr("type", "button");
-        giphyButton.attr("class", "gif btn btn-primary btn-block col-md-10");
+        giphyButton.attr("class", "gif btn btn-primary col-md-10");
         favButton.attr("type", "button");
-        favButton.attr("class", "favButton btn btn-primary btn-block col-md-2");
+        favButton.attr("class", "favButton btn btn-primary col-md-2");
         gif.attr("src", link);
         gif.attr("data-state", "still");
 // ==================================================================================================================

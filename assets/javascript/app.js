@@ -20,7 +20,7 @@ let WebsiteObject = {
         })
         this.giphyArray.push(obj);
         })
-      $("#buttons").append(`<button class="button" name='${element}'>${element}</button>`);
+      $("#buttons").append(`<button class="col-md-2 button button-primary" name='${element}'>${element}</button>`);
     })
   }
 }
@@ -40,6 +40,7 @@ $(document).on("click", ".button", function() {
     if (arr.name == this.name) {
       arr.images_still.map((link, index) => {
         let container = $("<div>"), rating = $("<p>"), gif = $("<img>"), giphyButton = $("<button>"), favButton = $("<button>");
+        container.attr("class", "col-md-3")
         giphyButton.attr("class", ".gif");
         gif.attr("src", link);
         gif.attr("data-state", "still");

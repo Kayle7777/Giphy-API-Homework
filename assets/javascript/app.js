@@ -66,7 +66,7 @@ $(document).on("click", ".button", function() {
 // ==================================================================================================================
         // This is for the star / favorites button
         favButton.click(function() {
-          let fixer = $("<div class='col-md-12 btn-group'>"), buttonContainer = $(this).parent()[0], button = $(this).parent().children()[1], favStarButton = $(this).parent().children()[2], paragraph = $(this).parent().children()[0], remover = $("<button type='button' class='btn btn-primary col-md-12'>");
+          let holder = $("<div class='col-md-12 btn-group'>"), buttonContainer = $(this).parent()[0], button = $(this).parent().children()[1], favStarButton = $(this).parent().children()[2], paragraph = $(this).parent().children()[0], remover = $("<button type='button' class='btn btn-primary col-md-12'>");
           favStarButton.remove();
           paragraph.remove();
           $(button).removeClass('col-md-10');
@@ -75,9 +75,9 @@ $(document).on("click", ".button", function() {
             $(this).parent().remove();
           })
           remover.text("X");
-          fixer.append(buttonContainer);
-          fixer.append(remover);
-          $("#faves").append(fixer);
+          holder.append(buttonContainer);
+          holder.append(remover);
+          $("#faves").append(holder);
         })
 // ==================================================================================================================
         giphyButton.append(gif);

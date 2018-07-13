@@ -65,11 +65,14 @@ $(document).on("click", ".button", function() {
         // This is for the star / favorites button
         favButton.click(function() {
           let faves = $("#faves");
-          let test = $(this).parent()[0];
+          let buttonContainer = $(this).parent()[0];
+          let button = $(this).parent().children()[1]
           let star = $(this).parent().children()[2];
           let paragraph = $(this).parent().children()[0];
-          let fixer = $("<div class='gifContainer col-md-3'>");
-          fixer.append(test);
+          $(button).removeClass('col-md-10');
+          $(button).addClass('col-md-12');
+          let fixer = $("<div class='gifContainer col-md-3 btn-group'>");
+          fixer.append(buttonContainer);
           star.remove();
           paragraph.innerHTML = '';
           faves.append(fixer);

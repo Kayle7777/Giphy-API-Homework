@@ -1,5 +1,5 @@
 let WebsiteObject = {
-  buttons: ["Dog","Cat","Fish","Bunny"],
+  buttons: ["Dog","Cat","Fish","Bunny", "DBZ", "Star Trek", "Captain Kirk", "Captain Picard", "Fury Road", "Keanu Reeves", "Guns"],
   giphyArray: [],
   renderButtons: function() {
     $("#buttons").empty();
@@ -40,7 +40,7 @@ $(document).on("click", ".button", function() {
   WebsiteObject.giphyArray.map((arr) => {
     if (arr.name == this.name) {
       arr.images_still.map((link, index) => {
-        let container = $("<div class='gifContainer col-md-3 btn-group'>"), rating = $("<p class='text-center col-md-12'>"), gif = $("<img>"), giphyButton = $("<button>"), favButton = $("<button>"), row=$("<div class='row'>");
+        let container = $("<div class='gifContainer col-md-4 btn-group'>"), rating = $("<p class='text-center col-md-12'>"), gif = $("<img>"), giphyButton = $("<button>"), favButton = $("<button>"), row=$("<div class='row'>");
         rating.text(`Rating: ${arr.rating}`);
         favButton.text("\u2729")
         giphyButton.attr("type", "button");
@@ -64,7 +64,7 @@ $(document).on("click", ".button", function() {
 // ==================================================================================================================
         // This is for the star / favorites button
         favButton.click(function() {
-          let fixer = $("<div class='gifContainer col-md-3 btn-group'>"), buttonContainer = $(this).parent()[0], button = $(this).parent().children()[1], favStarButton = $(this).parent().children()[2], paragraph = $(this).parent().children()[0];
+          let fixer = $("<div class='col-md-12 btn-group'>"), buttonContainer = $(this).parent()[0], button = $(this).parent().children()[1], favStarButton = $(this).parent().children()[2], paragraph = $(this).parent().children()[0];
           favStarButton.remove();
           paragraph.remove();
           $(button).removeClass('col-md-10');

@@ -1,6 +1,9 @@
 body {
   background-color: orange;
 }
+#favesID {
+  font-size: 2rem;
+}
 .favButton {
 }
 .gif {

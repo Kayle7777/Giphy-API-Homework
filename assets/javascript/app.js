@@ -28,11 +28,13 @@ let WebsiteObject = {
 WebsiteObject.renderButtons();
 
 $("#add-button").on("click", function(event) {
-  event.preventDefault();
-  var buttonInput = $("#button-input").val().trim();
-  $("#button-input").val("");
-  WebsiteObject.buttons.push(buttonInput);
-  WebsiteObject.renderButtons();
+  if (!$("#button-input").val().trim() == '') {
+    event.preventDefault();
+    var buttonInput = $("#button-input").val().trim();
+    $("#button-input").val("");
+    WebsiteObject.buttons.push(buttonInput);
+    WebsiteObject.renderButtons();
+  }
 });
 
 $(document).on("click", ".button", function() {

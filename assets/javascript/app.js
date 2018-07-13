@@ -74,7 +74,6 @@ $(document).on("click", ".button", function() {
           remover.click(function() {
             $(this).parent().remove();
           })
-          console.log(remover);
           remover.text("X");
           fixer.append(buttonContainer);
           fixer.append(remover);

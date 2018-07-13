@@ -7,7 +7,7 @@ let WebsiteObject = {
 // ==================================================================================================================
     // I should probably use a constructor here for giphyArray, because all this map does is build giphy array into a new array of objects
     this.buttons.map((element) => {
-      $.get(`http://api.giphy.com/v1/gifs/search?q=${element}&api_key=hB3OC11Wjmrbng5YPx9vRogIa5OsMSxH&limit=15`)
+      $.get(`https://api.giphy.com/v1/gifs/search?q=${element}&api_key=hB3OC11Wjmrbng5YPx9vRogIa5OsMSxH&limit=15`)
       .then((response) => {
         let obj = {};
         obj.name = element;

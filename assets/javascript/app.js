@@ -36,6 +36,11 @@ $("#add-button").on("click", function(event) {
     WebsiteObject.renderButtons();
   }
 });
+$("#button-input").keypress(function(event) {
+  if (event.which == 13) {
+    $("#add-button").click();
+  }
+})
 
 $(document).on("click", ".button", function() {
   $("#giphyGifs").empty();

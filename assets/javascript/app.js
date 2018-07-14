@@ -78,6 +78,11 @@ $(document).on("click", ".button", function() {
           holder.append(buttonContainer);
           holder.append(remover);
           $("#faves").append(holder);
+          Array.from($("#giphyGifs").children()).map((x) => {
+            if (x.innerHTML == "") {
+              x.remove();
+            }
+          })
         })
 // ==================================================================================================================
         giphyButton.append(gif);

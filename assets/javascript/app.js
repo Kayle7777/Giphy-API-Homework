@@ -20,7 +20,7 @@ let WebsiteObject = {
         })
         this.giphyArray.push(obj);
         })
-      $("#buttons").append(`<button class="button btn btn-info" name='${element}'>${element}</button>`);
+      $("#buttons").append(`<button class="nameButton btn btn-info" name='${element}'>${element}</button>`);
     })
   }
 }
@@ -42,7 +42,7 @@ $("#button-input").keypress(function(event) {
   }
 })
 
-$(document).on("click", ".button", function() {
+$(document).on("click", ".nameButton", function() {
   $("#giphyGifs").empty();
   WebsiteObject.giphyArray.map((arr) => {
     if (arr.name == this.name) {

@@ -26,7 +26,8 @@ let WebsiteObject = {
 }
 
 WebsiteObject.renderButtons();
-
+// ==================================================================================================================
+  //Add button stuff
 $("#add-button").on("click", function(event) {
   if (!$("#button-input").val().trim() == '') {
     event.preventDefault();
@@ -41,7 +42,7 @@ $("#button-input").keypress(function(event) {
     $("#add-button").click();
   }
 })
-
+// ==================================================================================================================
 $(document).on("click", ".nameButton", function() {
   $("#giphyGifs").empty();
   WebsiteObject.giphyArray.map((arr) => {

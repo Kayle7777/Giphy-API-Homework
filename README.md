@@ -6,6 +6,8 @@ Fun little thing I made, doesn't look great now that I look back on it -- but th
 
 * **Jesse Webb** - *All JS, html, CSS* - [Kayle7777](https://github.com/kayle7777)
 
+* ****
+
 ## Notable Concepts / Technologies Used
 
 * *jQuery / ajax*

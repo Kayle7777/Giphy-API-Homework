@@ -8,7 +8,7 @@ Fun little thing I made, doesn't look great now that I look back on it -- but th
 
 ## Notable Concepts / Technologies Used
 
-* **jQuery / ajax**
+* *jQuery / ajax*
 
 * ****
 

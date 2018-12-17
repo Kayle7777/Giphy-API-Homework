@@ -1,5 +1,6 @@
 # Giphy API Homework!
 
+Early school project
 Grab gifs from giphy API. Includes gif play/stop functionality, as well as a favorites bar.
 
 ## Authors
